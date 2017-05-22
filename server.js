@@ -1,7 +1,7 @@
 var express = require('express');
 var nodemailer = require("nodemailer");
 var app = express();
-var PORT = process.env.PORT || 3000
+var PORT = process.env.PORT || 3000;
 var authorization = require("./password.js");
 
     // Here we are configuring our SMTP Server details.
