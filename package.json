@@ -1,28 +1,28 @@
 {
-  "name": "bootstrap-portfolio",
+  "name": "portfolio-bootstrap",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rpalmore/Bootstrap-Portfolio.git"
-  },
-  "author": "Rebecca Palmore",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rpalmore/Bootstrap-Portfolio/issues"
-  },
-  "homepage": "https://github.com/rpalmore/Bootstrap-Portfolio/blob/master/README.md",
-  "engines": {
-    "node": "6.0.0"
-  },
+  "main": "server.js",
   "dependencies": {
     "express": "^4.15.3",
     "nodemailer": "^4.0.1"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "5.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpalmore/portfolio-bootstrap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rpalmore/portfolio-bootstrap/issues"
+  },
+  "homepage": "https://github.com/rpalmore/portfolio-bootstrap#readme"
 }
