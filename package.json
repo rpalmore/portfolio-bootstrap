@@ -1,0 +1,28 @@
+{
+  "name": "bootstrap-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpalmore/Bootstrap-Portfolio.git"
+  },
+  "author": "Rebecca Palmore",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rpalmore/Bootstrap-Portfolio/issues"
+  },
+  "homepage": "https://github.com/rpalmore/Bootstrap-Portfolio/blob/master/README.md",
+  "engines": {
+    "node": "6.0.0"
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "nodemailer": "^4.0.1"
+  },
+  "devDependencies": {}
+}
