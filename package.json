@@ -2,7 +2,7 @@
   "name": "portfolio-bootstrap",
   "version": "1.0.0",
   "description": "",
-  "main": "password.js",
+  "main": "server.js",
   "dependencies": {
     "express": "^4.15.3",
     "nodemailer": "^4.0.1"
