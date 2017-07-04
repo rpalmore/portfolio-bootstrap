@@ -5,6 +5,11 @@ body {
 	color: #777777;
 }
 
+/*.container-fluid {
+	width: 960px;
+	align-content: center;
+}*/
+
 a {
 	color: #777777;
 }
@@ -28,15 +33,14 @@ a:hover {
 	background-color: #4aaaa5;
 	text-align: center;
 	display: inline-block;
-/*	left: 15px;*/
 }
-
-/*.visible-sm {
-	display: inline-block;
-}*/
 
 #name {
 	color: #ffffff;
+}
+
+.mobile-nav {
+	line-height: 50px;
 }
 
 
@@ -45,10 +49,10 @@ a:hover {
 	text-align: center;
 }
 
-.portfolio-link {
+/*.portfolio-link {
 	border-right: 1px solid #cccccc;
 	border-left: 1px solid #cccccc;
-}
+}*/
 
 .projects {
 	width: 100%;
@@ -77,9 +81,10 @@ span
 	padding-bottom: 10px;
 	background-color: #ffffff;
 	border: 1px solid #dddddd;
+	/*width: 650px;*/
 	}
 
-.section-header {
+.section-header, .sidebar-header {
 	border-bottom: 3px solid #dddddd;
 	font-size: 32px;
 	font-weight: bold;
@@ -88,6 +93,11 @@ span
 	padding-top: 15px;
 	padding-bottom: 15px;
 	margin-bottom: 15px;
+}
+
+.sidebar-header {
+	border-bottom: 1px solid #dddddd;
+	font-size: 22px;
 }
 
 .img-responsive {
@@ -99,10 +109,16 @@ p {
 	padding-right: 10px;
 }
 
-.panel {
+.panel, .panel-medium {
 	padding-bottom: 20px;
 	border: 1px solid #dddddd;
 	background-color: #ffffff;
+	margin-bottom: 30px;
+	/*width: 270px;*/
+}
+
+.panel-medium {
+	margin-left: 30px;
 }
 
 .panel-default {

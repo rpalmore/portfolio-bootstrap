@@ -1,12 +1,18 @@
-var express = require('express');
+var express = require("express");
+var PORT = process.env.PORT || 3000;
 var nodemailer = require("nodemailer");
 var app = express();
-var PORT = process.env.PORT || 3000;
+var bodyParser = require("body-parser");
+var path = require("path")
+// Sets up the Express app to handle data parsing
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use(express.static("./public"));
+
+
 var authorization = require("./password.js");
-
-    // Here we are configuring our SMTP Server details.
-    // STMP is mail server which is responsible for sending and recieving email.
-
 var smtpTransport = nodemailer.createTransport({
     service: "gmail",
     host: "smtp.gmail.com",
@@ -15,18 +21,29 @@ var smtpTransport = nodemailer.createTransport({
 //------------------SMTP Over-----------------------------//
 
 //------------------Routing Started ----------------------//
+console.log("server.js loaded!");
+console.log(__dirname);
 
 app.get('/', function(req, res) {
-    res.sendFile('contact.html', { root: __dirname });
+    res.sendFile('index.html', { root: __dirname });
 });
-app.get('/send', function(req, res) {
+
+app.get('/portfolio', function(req, res) {
+    res.sendFile('portfolio.html', { root: __dirname + "/public" });
+    // res.sendFile('portfolio.html');
+    // res.sendFile('portfolio.html', { root: "/public" });
+});
+
+app.get('/contact', function(req, res) {
+    res.sendFile('contact.html', { root: __dirname + "/public"});
+});
+
+app.post('/sendemail', function(req, res) {
     var mailOptions = {
         to: "rkpalmore@gmail.com",
-        name: req.query.name,
-        address: req.query.address,
-        subject: "Professional Inquiry",
-        text: req.query.text,
-        html: "<b>Sender: </b>" + req.query.name + "<br> <b>Email: </b>" + req.query.address + "<p>" + "<hr />" + req.query.text + "</p>"
+        subject: "Hey! Saw Your Profile",
+        text: req.body.text,
+        html: "<b>Sender: </b>" + req.body.from + "<br> <b>Email: </b>" + req.body.address + "<p>" + "<hr />" + req.body.text + "</p>"
     }
     console.log(mailOptions);
     smtpTransport.sendMail(mailOptions, function(error, response) {
@@ -34,7 +51,7 @@ app.get('/send', function(req, res) {
             console.log(error);
             res.end("error");
         } else {
-            console.log("Message sent: " + response.message);
+            console.log("Message sent from: " + req.body.address);
             res.end("sent");
         }
     });
