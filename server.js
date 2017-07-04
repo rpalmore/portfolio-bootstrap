@@ -23,9 +23,12 @@ app.use(express.static("./public"));
 var smtpTransport = nodemailer.createTransport({
     service: "gmail",
     host: "smtp.gmail.com",
-    user: process.env.user,
-    pass: process.env.pass
+    auth: {
+        user: process.env.user,
+        pass: process.env.pass
+    }
 });
+
 
 // let pw = authorization ({
 
