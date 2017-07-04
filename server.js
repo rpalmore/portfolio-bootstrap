@@ -12,12 +12,38 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static("./public"));
 
 
-var authorization = require("./password.js");
+// const authorization = require("./password.js");
+// var smtpTransport = nodemailer.createTransport({
+//     service: "gmail",
+//     host: "smtp.gmail.com",
+//     auth: authorization
+// });
+
+// var authorization = require("./password.js");
 var smtpTransport = nodemailer.createTransport({
     service: "gmail",
     host: "smtp.gmail.com",
-    auth: authorization
+    user: process.env.PW_EMAIL_USER,
+    pass: process.env.PW_EMAIL_USER
 });
+
+// let pw = authorization ({
+
+// });
+
+
+// var authorization = {
+//     user: 'rkpportfolio@gmail.com',
+//     pass: 'DeveloperPortfolio2017!'
+// }
+
+// EXAMPLE
+// const aws = require('aws-sdk');
+
+// let s3 = new aws.S3({
+//   accessKeyId: process.env.S3_KEY,
+//   secretAccessKey: process.env.S3_SECRET
+// });
 //------------------SMTP Over-----------------------------//
 
 //------------------Routing Started ----------------------//
