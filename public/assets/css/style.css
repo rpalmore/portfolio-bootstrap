@@ -146,6 +146,11 @@ p {
 	display: inline-block;
 }
 
+#confirm {
+	text-align: center;
+	font-style: italic;
+}
+
 .footer {
 	clear: both;
 	padding-top: 0;

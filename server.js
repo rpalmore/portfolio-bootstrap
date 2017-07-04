@@ -21,8 +21,6 @@ var smtpTransport = nodemailer.createTransport({
 //------------------SMTP Over-----------------------------//
 
 //------------------Routing Started ----------------------//
-console.log("server.js loaded!");
-console.log(__dirname);
 
 app.get('/', function(req, res) {
     res.sendFile('index.html', { root: __dirname });
@@ -30,29 +28,27 @@ app.get('/', function(req, res) {
 
 app.get('/portfolio', function(req, res) {
     res.sendFile('portfolio.html', { root: __dirname + "/public" });
-    // res.sendFile('portfolio.html');
-    // res.sendFile('portfolio.html', { root: "/public" });
 });
 
 app.get('/contact', function(req, res) {
     res.sendFile('contact.html', { root: __dirname + "/public"});
 });
 
-app.post('/sendemail', function(req, res) {
+app.post("/sendemail", function(req, res) {
     var mailOptions = {
         to: "rkpalmore@gmail.com",
         subject: "Hey! Saw Your Profile",
         text: req.body.text,
         html: "<b>Sender: </b>" + req.body.from + "<br> <b>Email: </b>" + req.body.address + "<p>" + "<hr />" + req.body.text + "</p>"
     }
-    console.log(mailOptions);
+    console.log("Message: " + mailOptions.text);
     smtpTransport.sendMail(mailOptions, function(error, response) {
         if (error) {
             console.log(error);
             res.end("error");
         } else {
-            console.log("Message sent from: " + req.body.address);
-            res.end("sent");
+            console.log("Message successfully sent from: " + req.body.address);
+            res.send("banana");
         }
     });
 });

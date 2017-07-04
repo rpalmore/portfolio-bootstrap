@@ -8,27 +8,82 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script>
     $(document).ready(function() {
-        $("#send_email").click(function() {
-          var name = $("#senderName").val().trim();
-          var address = $("#address").val().trim();
-          var text = $("#message").val().trim();
-            $("#confirm").text("Sending email ... Please wait");
-            $.post("http://localhost:3000/sendemail", {
-              from: name,
-              address: address,
-              text: text
+        var name = $("#senderName").val().trim();
+        var address = $("#address").val().trim();
+        var text = $("#message").val().trim();
+      // checkFields();
+      $("#send_email").click(function() {
+        $("#confirm").text("Sending email ... Please wait");
+          $.post("/sendemail", {
+            from: name,
+            address: address,
+            text: text
             }, function(data) {
-                if (data === "sent") {
-                    $("#confirm").empty().html("Your email has been sent. Thank you for your interest!");
+              if (data === "banana") {
+                // console.log("Hey!");
+                // alert("Great!");
+                $("#confirm").empty().html("Your email has been sent. Thank you for your interest!");
+                clearMessage();
+              } else {
+                alert("Email not sent!");
               }
-            $("#senderName").val("");
-            $("#address").val("");
-            $("#message").val("");
-            });
-        });
+          });
+          // this is triggering error but also preventing page from adding /? at the end.
+        // $("#senderName").val("");
+        // $("#address").val("");
+        // $("#message").val("");
       });
-</script>
+    });
+
+    // function checkFields() {
+    //   if (name.length !==0) {
+    //   $("#send_email").removeAttr("disabled");
+    //   console.log("testing");
+    //   }
+    // }
+
+
+    // $(document).ready(function() {
+    //   $("#send_email").click(function() {
+    //     // add some validation language here so only send if fields are not empty
+    //     var name = $("#senderName").val().trim();
+    //     var address = $("#address").val().trim();
+    //     var text = $("#message").val().trim();
+    //     $("#confirm").text("Sending email ... Please wait");
+    //       $.post("/sendemail", {
+    //         from: name,
+    //         address: address,
+    //         text: text
+    //         }, function(data) {
+    //           if (data === "banana") {
+    //             console.log("Hey!");
+    //             alert("Great!");
+    //             $("#confirm").empty().html("Your email has been sent. Thank you for your interest!");
+    //             clearMessage();
+    //           } else {
+    //             alert("Email not sent!");
+    //           }
+    //       });
+    //       // this is triggering error but also preventing page from adding /? at the end.
+    //     $("#senderName").val("");
+    //     $("#address").val("");
+    //     $("#message").val("");
+    //   });
+    // });
+
+    // Prevent form from submitting if 
+
+
+    // User feedback
+    function clearMessage() {
+      setTimeout(confirm, 3000);
+    }
+    function confirm() {
+      $("#confirm").fadeOut("slow");
+    };      
+  </script>
 </head>
+
 <body>
 <!-- CONTAINER HOLDS ALL BODY CONTENT -->
 <div class="container-fluid">
@@ -69,7 +124,7 @@
     <!-- SECONDARY NAV, ADJUSTED FOR LARGER SCREENS -->
     <div class="visible-sm visible-md visible-lg col-sm-5 col-sm-offset-1 col-md-4 col-md-offset-1">
       <div class="links col-sm-4">
-        <a href="/index">
+        <a href="/">
           About
         </a>
       </div>
@@ -91,21 +146,24 @@
     <div class="main-content col-xs-12">
       <div class="section-header">Contact
       </div>
-      <div id="confirm"></div>
+      <!-- <div id="confirm"></div> -->
       <form>
-          <div class="form-group">
+        <div class="form-group">
             <label>Name</label>
-              <input type="text" class="form-control" id="senderName" placeholder="Enter your name" />
+              <input type="text" required class="form-control" id="senderName" placeholder="Enter your name" />
           </div>
           <div class="form-group">
             <label>Email</label>
-              <input type="text" class="form-control" id="address" placeholder="example@gmail.com">
+              <input type="email" required validate class="form-control" id="address" placeholder="your.email@gmail.com">
           </div>
           <div class="form-group">
             <label for="comment">Message</label>
-              <textarea class="form-control" id="message" rows="15"></textarea>
+             <div id="confirm"></div>
+              <textarea required class="form-control" id="message" rows="15">
+              </textarea>
           </div>
           <div class="form-group">
+            <!-- <button id="send_email" type="submit" class="btn btn-default" disabled="disabled">Submit</button> -->
             <button id="send_email" type="submit" class="btn btn-default">Submit</button>
           </div>
       </form>
@@ -126,8 +184,8 @@
       <div class="main-content col-xs-12">
         <div class="sidebar-header">Connect With Me</div>
           <a href="https://github.com/rpalmore" target="_blank"><img src="assets/images/github.png" alt="GitHub" width="60" height="60"></a>
-          <a href="linkedin.com/in/rebecca-palmore" target="_blank"><img src="assets/images/linkedin.png" alt="LinkedIn" width="60" height="60"></a>
-          <a href="http://stackoverflow.com/users/7361075/rebecca-palmore" target="_blank"><img src="assets/images/stackoverflow.png" alt="stackoverflow" width="60" height="60"></a>
+          <a href="https://linkedin.com/in/rebecca-palmore" target="_blank"><img src="assets/images/linkedin.png" alt="LinkedIn" width="60" height="60"></a>
+          <a href="https://stackoverflow.com/users/7361075/rebecca-palmore" target="_blank"><img src="assets/images/stackoverflow.png" alt="stackoverflow" width="60" height="60"></a>
         </div>
       </div>
   </div>
@@ -141,7 +199,6 @@
     </div>
   </div>
 </div>
-<!-- <script src="./server.js"></script> -->
 </body>
 </html>
 
