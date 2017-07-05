@@ -8,11 +8,11 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script>
     $(document).ready(function() {
+      // checkFields();
+      $("#send_email").click(function() {
         var name = $("#senderName").val().trim();
         var address = $("#address").val().trim();
         var text = $("#message").val().trim();
-      // checkFields();
-      $("#send_email").click(function() {
         $("#confirm").text("Sending email ... Please wait");
           $.post("/sendemail", {
             from: name,

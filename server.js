@@ -19,19 +19,12 @@ app.use(express.static("./public"));
 //     auth: authorization
 // });
 
-// var authorization = require("./password.js");
-// var smtpTransport = nodemailer.createTransport({
-//     service: "gmail",
-//     host: "smtp.gmail.com",
-//     auth: authorization
-// });
-
 var smtpTransport = nodemailer.createTransport({
     service: "gmail",
     host: "smtp.gmail.com",
     auth: {
-        user: process.env.user,
-        pass: process.env.pass
+        user: process.env.h_user,
+        pass: process.env.h_pass
     }
 });
 
