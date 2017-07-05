@@ -11,7 +11,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static("./public"));
 
-
+// Development connection
 // var authorization = require("./password.js");
 // var smtpTransport = nodemailer.createTransport({
 //     service: "gmail",
@@ -19,6 +19,7 @@ app.use(express.static("./public"));
 //     auth: authorization
 // });
 
+// Production deployment
 var smtpTransport = nodemailer.createTransport({
     service: "gmail",
     host: "smtp.gmail.com",
