@@ -49,6 +49,14 @@ a:hover {
 	background-color: #4aaaa5;
 }
 
+#download {
+	color: #777777;
+}
+
+#download:hover {
+	color: #4aaaa5;
+}
+
 .projects {
 	width: 100%;
 	padding-bottom: 70px;
