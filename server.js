@@ -4,28 +4,29 @@ var nodemailer = require("nodemailer");
 var app = express();
 var bodyParser = require("body-parser");
 var path = require("path")
-// Sets up the Express app to handle data parsing
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static("./public"));
 
-// Development connection
-// var authorization = require("./password.js");
-// var smtpTransport = nodemailer.createTransport({
-//     service: "gmail",
-//     host: "smtp.gmail.com",
-//     auth: authorization
-// });
 
-// Production deployment
+//------------------Determine Connection------------------//
+
+if (PORT === 3000) {
+    var password = require("./password.js");
+} else {
+    console.log("Heroku connection");
+    var password = process.env
+};
+
 var smtpTransport = nodemailer.createTransport({
     service: "gmail",
     host: "smtp.gmail.com",
     auth: {
-        user: process.env.h_user,
-        pass: process.env.h_pass
+      user: password.user,
+      pass: password.pass
     }
 });
 
