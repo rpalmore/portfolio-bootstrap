@@ -49,12 +49,16 @@ a:hover {
 	background-color: #4aaaa5;
 }
 
-#download {
+#linkText {
 	color: #777777;
 }
 
-#download:hover {
+#linkText:hover {
 	color: #4aaaa5;
+}
+
+#download {
+	text-align: right;
 }
 
 .projects {
