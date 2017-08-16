@@ -115,6 +115,11 @@ p {
 	padding-right: 10px;
 }
 
+/*Override Bootstrap CSS for Sidebar*/
+/*.col-lg-3 {
+    width: 27%;
+}*/
+
 .panel, .panel-medium {
 	padding-bottom: 20px;
 	border: 1px solid #dddddd;
