@@ -67,11 +67,9 @@ a:hover {
 	border: 2px solid #cccccc;
 }
 
-span
-	{
+span {
 	position: absolute;
 	font-size: 20px;
-	bottom: 0px;
 	left: 15px;
 	right: 15px;
 	bottom: 28px;
@@ -82,8 +80,7 @@ span
 	z-index: 100;
 	}
 
-.main-shell
-	{
+.main-shell {
 	margin-bottom: 30px;
 	padding-bottom: 10px;
 	background-color: #ffffff;
