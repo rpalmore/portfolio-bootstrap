@@ -21,14 +21,19 @@ if (PORT === 3000) {
     var password = process.env
 };
 
-var smtpTransport = nodemailer.createTransport({
-    service: "gmail",
-    host: "smtp.gmail.com",
+let transporter = nodemailer.createTransport({
+    service: 'Gmail',
     auth: {
-      user: password.user,
-      pass: password.pass
+        type: 'OAuth2',
+        user: password.user,
+        clientId: password.clientID,
+        clientSecret: password.clientSecret,
+        refreshToken: password.refreshToken,
     }
 });
+
+// Useful resource: https://medium.com/@pandeysoni/nodemailer-service-in-node-js-using-smtp-and-xoauth2-7c638a39a37e
+
 
 //------------------SMTP Over-----------------------------//
 
@@ -54,7 +59,7 @@ app.post("/sendemail", function(req, res) {
         html: "<b>Sender: </b>" + req.body.from + "<br> <b>Email: </b>" + req.body.address + "<p>" + "<hr />" + req.body.text + "</p>"
     }
     console.log("Message: " + mailOptions.text);
-    smtpTransport.sendMail(mailOptions, function(error, response) {
+    transporter.sendMail(mailOptions, function(error, response) {
         if (error) {
             console.log(error);
             res.end("error");
