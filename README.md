@@ -1,6 +1,6 @@
 # Rebecca Palmore: Portfolio
 
-[See it live!](http://www.rebeccapalmore.com/)
+[See it live!](https://still-fortress-26250.herokuapp.com/)
 
 ## Description
 
@@ -12,7 +12,7 @@ Since completing the homework assignment, I've added functionality to the portfo
 
 I plan to keep this portfolio updated with projects and will continue to tweak its design.
 
-*Last updated: Aug. 16, 2017*
+*Update: I have rebuilt my portfolio using Create React App. [Check that out here!]*(http://www.rebeccapalmore.com/)
 
 
 
