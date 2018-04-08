@@ -12,7 +12,7 @@ Since completing the homework assignment, I've added functionality to the portfo
 
 I plan to keep this portfolio updated with projects and will continue to tweak its design.
 
-*Update: I have rebuilt my portfolio using Create React App. [Check that out here!]*(http://www.rebeccapalmore.com/)
+*Update: I have rebuilt my portfolio using Create React App. [Check that out here!](http://www.rebeccapalmore.com/)*
 
 
 
